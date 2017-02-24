@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<h1 id="hide1">Examples </h1>
+
+<p id="p1"> The optional speed parameter specifies the speed of the hiding/showing, and can take the following values: "slow", "fast", or milliseconds.
+The optional callback parameter is a function to be executed after the hide() or show() method completes (you will learn more about callback functions in a later chapter).With jQuery, you can toggle between the hide() and show() methods with the toggle() method.
+Shown elements are hidden and hidden elements are shown:
+</p>
+
+
+<p id="p2"> The optional speed parameter specifies the speed of the hiding/showing, and can take the following values: "slow", "fast", or milliseconds.
+The optional callback parameter is a function to be executed after the hide() or show() method completes (you will learn more about callback functions in a later chapter).With jQuery, you can toggle between the hide() and show() methods with the toggle() method.
+Shown elements are hidden and hidden elements are shown:
+</p>
+<button> Hide me</button>
+
+
+
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+    	$("#p2").hide();
+    	$("#p1").css("background-color","yellow");
+    	$("#p1").prepend(" Thank you for Clicking ")
+
+
+
+    });
+});
+
+
+
+</script>
+</body>
+</html>
