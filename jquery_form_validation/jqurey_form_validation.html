@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<title>jQuery Form Validation</title>
+</head>
+<body>
+	<!-- <div class="img-responsive"> -->
+	<div class="container">
+		<h2 style="color:white; margin-left: 38%;padding-top:30px;">Jquery form validation</h2>
+		<div id="for" class=" col-sm-7">
+			<form action="thankyou.html"  class="form-horizontal" id="form" name="registration" method="POST">
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="name">Name:</label>
+					<div class="col-sm-7">
+						<input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="email">Email:</label>
+					<div class="col-sm-7">
+						<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="password">Password:</label>
+					<div class="col-sm-7">          
+						<input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+					</div>
+				</div>
+				<div class="form-group">        
+					<div class="col-sm-offset-3 col-sm-10">
+						<button type="submit" class="btn btn-default" id="submit">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div style="margin-right: 30px;margin-top: 5px;">
+		<div class="col-md-offset-1 col-md-5" style="color: white;border: 2px solid grey;-webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);background-color: rgba(211,211,211,0.1);">
+			<h3>What is Lorem Ipsum?</h3>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		</div>
+		<div class="col-md-5" style="color: white;border: 2px solid grey; -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);background-color: rgba(211,211,211 ,0.1); margin-left: 30Px;">
+			<h3>What is Lorem Ipsum?</h3>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		</div>
+	</div>
+</div>
+<script>
+		// Wait for the DOM to be ready
+		$(function() {
+		  // Initialize form validation on the registration form.
+		  // It has the name attribute "registration"
+		  $("form[name='registration']").validate({
+		  	errorClass: 'errors',
+		    // Specify validation rules
+		    rules: {
+		      // The key name on the left side is the name attribute
+		      // of an input field. Validation rules are defined
+		      // on the right side
+		      name: {
+		      	required:true,
+		      },
+		      email: {
+		      	required: true,
+		        // Specify that email should be validated
+		        // by the built-in "email" rule
+		        email: true
+		    },
+		    password: {
+		    	required: true,
+		    	minlength: 6
+		    }
+		},
+		    	// Specify validation error messages
+		    	messages: {
+		    		name: "Please enter your Name",
+		    		password: {
+		    			required: "Please provide a password",
+		    			minlength: "Your password must be at least 6 characters long"
+		    		},
+		    		email: "Please enter a valid email address"
+
+		    	},
+		    	// Make sure the form is submitted to the destination defined
+		    	// in the "action" attribute of the form when valid
+		    	submitHandler: function(form) {
+		    		alert("Ok to Conform!!");
+		    		form.submit();
+
+		    	},
+
+		    	highlight: function (element) {
+		    		$(element).parent().addClass('errors')
+		    	},
+		    	unhighlight: function (element) {
+		    		$(element).parent().removeClass('errors')
+		    	}
+		    });
+		});
+	</script>
+</body>
+</html>
