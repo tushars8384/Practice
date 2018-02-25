@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TO DO LIST</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="mar.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script>
+        $(document).ready(function() {
+             $("button").click(function(e)
+                 {
+                  e.preventDefault();
+                  var toAdd = $("#ListItem").val();
+                  $("#listing").append("<li>" + "<input type='checkbox' id='strik'> " +toAdd+"<button type='submit' class='btn btn-primary btn-xs pull-right' id='bttndel'>"+
+                         " X </button>" + "</li>" +"<br/>");
+                 });
+             $(document).on('click', '#bttndel', function()
+                 {   
+                     $(this).parent().hide();
+                 });
+             $(document).on('click', '#strik', function()
+                 {   
+                     $(this).parent().wrap("<span style='text-decoration:line-through'>");
+                 });
+            });
+    </script>
+</head>
+<body class="def">
+    <h2> TO DO LIST </h2>
+    <br>
+    <form name="toDoList">
+        <label>TYPE HERE:</label>
+        <input type="text" id="ListItem" name="ListItem">    
+        <button type="submit" class="btn btn-primary" >ADD</button>
+    </form>
+    <br>
+    <ul id="listing">
+    </ul>
+</body>
+</html>
